@@ -147,6 +147,35 @@ Examples:
 * `find task/ desc/homework`
 * `find date/02-02-2022`
 
+### Tagging tasks to employees `tagTask`
+
+Assigns tasks to employees.
+
+Format: `tagTask INDEX n/EMPLOYEE_NAME`
+
+* Tags the task with at the specified `INDEX` to the employee `EMPLOYEE_NAME`.
+* The index refers to the index number shown in the displayed Task list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Example:
+
+* `tagTask 3 n/Kazuha Kaedehara` Tags the 3rd task to employee named Kazuha Kaedehara
+
+### Tagging tasks with priority `tagPriority`
+
+Tags a task with a priority.
+
+Format: `tagPriority INDEX priority/[Priority of the task]`
+
+* Tags the task at the specified `INDEX` with `PRIORITY OF TASK`
+* The index refers to the index number shown in the displayed Task list.
+* The index **must be a positive integer** 1, 2, 3, …​
+* The tags are only `LOW`, `MEDIUM`, `HIGH`.
+
+Examples:
+
+* `tagPriority 2 priority/high` Assigns the 2nd task with the high priority.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the Task list.
@@ -171,10 +200,6 @@ ManageEZPZ data are saved as a JSON file `[JAR file location]/data/ManageEZPZ.js
 If your changes to the data file makes its format invalid, ManageEZPZ will discard all data and start with an empty data file at the next run.
 </div>
 
-### Tagging Tasks to Employees `[coming in v1.3]`
-
-_Details coming soon ..._
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -194,4 +219,6 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Find** | `find task/TASK_DESCRIPTION` <br> e.g., `find task/homework`
 **List** | `list` <br> e.g. `list all/` or `list event/` or `list deadline/`
+**Add Task To Employee** | `tagTask INDEX n/EMPLOYEE_NAME` <br> e.g. `tagTask 3 n/Kazuha Kaedehara`
+**Add Priority** | `tagPriority INDEX priority/[Priority of the task]` <br> e.g. `tagPriority 2 priority/high`
 **Help** | `help`
