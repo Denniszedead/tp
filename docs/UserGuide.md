@@ -104,6 +104,25 @@ Examples:
 * `editEmployee 1 p/91234567 e/johndoe@example.com` edits the phone number and email address of the 1st employee to be 91234567 and johndoe@example.com respectively. 
 * `editEmployee 2 n/Betsy Crower` edits the name of the 2nd person to be Betsy Crower.
 
+### Finding Employees by multiple options : `findEmployee`
+
+Finds employee(s) based on multiple conditions provided.
+
+Note:
+* Parameters for finding employees can be entered together in any order.
+* You must enter at least one parameter.
+
+Format: `findEmployee [n/NAMES] [p/PHONE_NUMBER] [e/EMAIL]`
+* `findEmployee n/[LIST OF NAMES]` finds employees whose names contain any of the words in [LIST OF NAMES].
+* `findEmployee p/PHONE_NUMBER` finds employees with the exact phone number.
+* `findEmployee e/EMAIL` finds employees with the exact email.
+
+Examples:
+* `findEmployee n/Alex`
+* `findEmployee p/87438807`
+* `findEmployee e/alexyeoh@example.com`
+* `findEmployee n/Bernice Yu p/99272758 e/berniceyu@example.com`
+
 ### Deleting an Employee : `deleteEmployee`
 
 Deletes the specified employee from ManageEZPZ.
@@ -118,25 +137,6 @@ Examples:
 * `deleteEmployee 2` deletes the 2nd employee in the displayed employee list.
 * `listEmployee` followed by `deleteEmployee 2` sets the displayed employee list to show all employees in ManageEZPZ and deletes the 2nd employee in ManageEZPZ.
 * `findEmployee n/Betsy` followed by `deleteEmployee 1` sets the displayed employee list with the results from the findEmployee command and deletes the 1st employee in the displayed employee list.
-
-### Finding Employees by multiple options : `findEmployee`
-
-Finds employee(s) based on multiple conditions provided.
-
-Note:
-* Parameters for finding employees can be entered together in any order.
-* You must enter at least one parameter.
-
-Format: `findEmployee [n/NAMES] [p/PHONE_NUMBER] [e/EMAIL]`
-* `findEmployee n/NAMES` finds employees whose names contain any of the words in [LIST OF NAMES].
-* `findEmployee p/PHONE_NUMBER` finds employees with the exact phone number.
-* `findEmployee e/EMAIL` finds employees with the exact email.
-
-Examples:
-* `findEmployee n/Alex`
-* `findEmployee p/87438807`
-* `findEmployee e/alexyeoh@example.com`
-* `findEmployee n/Bernice Yu p/99272758 e/berniceyu@example.com`
 
 ### Adding a Task : `addTodo`, `addEvent`, `addDeadline`
 
@@ -165,6 +165,49 @@ For deadline and event, the DATE must be in this format: YYYY-MM-DD and the TIME
 Shows a list of all tasks in ManageEZPZ.
 
 Format: `listTask`
+
+### Editing a Task : `editTask`
+
+Edits an existing task in ManageEZPZ.
+
+Format:
+* `editTask INDEX [desc/NAME]`
+* `editTask INDEX []`
+* `editTask INDEX []`
+
+Examples:
+* `editTask XXX` edits ...
+* `editTask XXX` edits ...
+
+### Marking a Task : `markTask`
+
+Marks the specified task in ManageEZPZ as done.
+
+Format: `markTask INDEX`
+
+* Marks the task at the specified `INDEX` as done.
+* The index refers to the index number shown in the displayed task list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `markTask 2` marks the 2nd task in the displayed task list as done.
+* `listTask` followed by `markTask 2` sets the displayed task list to show all tasks in ManageEZPZ and marks the 2nd task in ManageEZPZ as done.
+* `findTask desc/slides` followed by `markTask 1` sets the displayed task list with the results from the findTask command and marks the 1st task in the displayed task list as done.
+
+### Unmarking a Task : `unmarkTask`
+
+Unmarks the specified task in ManageEZPZ, i.e., changes the status back to not done.
+
+Format: `unmarkTask INDEX`
+
+* Unmarks the task at the specified `INDEX` to change the status back to not done.
+* The index refers to the index number shown in the displayed Task list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `unmarkTask 2` changes the 2nd task in the displayed task list back to not done.
+* `listTask` followed by `unmarkTask 2` sets the displayed task list to show all tasks in ManageEZPZ and changes the 2nd task in ManageEZPZ back to not done.
+* `findTask desc/slides` followed by `unmarkTask 1` sets the displayed task list with the results from the findTask command and changes the 1st task in the displayed task list back to not done.
 
 ### Finding Tasks by multiple options : `findTask`
 
@@ -210,49 +253,6 @@ Example:
         * priority high,
         * assigned to Alex Yeoh,
         * and is marked as done.
-
-### Editing a Task : `editTask`
-
-Edits an existing task in ManageEZPZ.
-
-Format:
-* `editTask INDEX [desc/NAME]`
-* `editTask INDEX []`
-* `editTask INDEX []`
-
-Examples:
-* `editTask XXX` edits ...
-* `editTask XXX` edits ...
-
-### Marking a Task : `markTask`
-
-Marks the specified task in ManageEZPZ as done.
-
-Format: `markTask INDEX`
-
-* Marks the task at the specified `INDEX` as done.
-* The index refers to the index number shown in the displayed task list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `markTask 2` marks the 2nd task in the displayed task list as done.
-* `listTask` followed by `markTask 2` sets the displayed task list to show all tasks in ManageEZPZ and marks the 2nd task in ManageEZPZ as done.
-* `findTask desc/slides` followed by `markTask 1` sets the displayed task list with the results from the findTask command and marks the 1st task in the displayed task list as done.
-
-### Unmarking a Task : `unmarkTask`
-
-Unmarks the specified task in ManageEZPZ, i.e., changes the status back to not done.
-
-Format: `unmarkTask INDEX`
-
-* Unmarks the task at the specified `INDEX` to change the status back to not done.
-* The index refers to the index number shown in the displayed Task list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `unmarkTask 2` changes the 2nd task in the displayed task list back to not done.
-* `listTask` followed by `unmarkTask 2` sets the displayed task list to show all tasks in ManageEZPZ and changes the 2nd task in ManageEZPZ back to not done.
-* `findTask desc/slides` followed by `unmarkTask 1` sets the displayed task list with the results from the findTask command and changes the 1st task in the displayed task list back to not done.
 
 ### Deleting a Task : `deleteTask`
 
