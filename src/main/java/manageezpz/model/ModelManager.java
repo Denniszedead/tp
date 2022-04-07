@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import manageezpz.commons.core.GuiSettings;
 import manageezpz.commons.core.LogsCenter;
-import manageezpz.logic.parser.Prefix;
 import manageezpz.model.person.Person;
 import manageezpz.model.task.Deadline;
 import manageezpz.model.task.Event;
@@ -254,16 +253,6 @@ public class ModelManager implements Model {
         return addressBook.isEmployeeTaggedToTask(task, person);
     }
 
-    @Override
-    public String listTasks() {
-        return addressBook.listTask();
-    }
-
-    @Override
-    public String listTasks(Prefix option) {
-        return addressBook.listTask(option);
-    }
-
     //=========== Filtered Task List Accessors =============================================================
 
     /**
@@ -300,11 +289,6 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
                 && filteredTasks.equals(other.filteredTasks);
-    }
-
-    @Override
-    public boolean hasPriority(Task task) {
-        return addressBook.hasPriority(task);
     }
 
     @Override

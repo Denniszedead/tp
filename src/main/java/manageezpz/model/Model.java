@@ -207,21 +207,6 @@ public interface Model {
     boolean isEmployeeTaggedToTask(Task task, Person p);
 
     /**
-     * Returns a list of all tasks.
-     */
-    String listTasks();
-
-    /**
-     * Returns a list of tasks that satisfy the option given.
-     */
-    String listTasks(Prefix option);
-
-    /**
-     * Returns true if a {@code Task} is allocated with a priority.
-     */
-    boolean hasPriority(Task task);
-
-    /**
      * Replaces the given task {@code target} with {@code editedTask}.
      * {@code target} must exist in the task list.
      * The task identity of {@code editedTask} must not be the same as another existing task in the task list.
